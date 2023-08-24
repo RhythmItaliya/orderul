@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto p-5">
+                <form action="" class="bg-warning p-5">
+                    <label for="">Username</label>
+                    <input type="text" id="xyz" class="form-control">
+
+                    <label for="">Password</label>
+                    <input type="password" id="pqr" class="form-control ">
+
+                    <button class="btn btn-primary mt-2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+
+    <!-- <script>
+        $(document).keypress(function (rhythm) {
+            if (rhythm.which == 13) { alert('Key press : ' + rhythm.which) };
+        });
+    </script> -->
+
+    <script>
+          $(document).ready(function() {
+            $("#pqr").keypress(function(event) {
+                if (event.which === 13) {
+                    alert("Key press :   " + event.which);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

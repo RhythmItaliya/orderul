@@ -1,0 +1,314 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(35, 30, 65);
+    --primary-color2: rgb(255, 217, 55);
+}
+
+.custom-div {
+    padding: 45px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color2);
+    box-shadow: 0 2px 5px var(--primary-color);
+
+}
+
+.headline {
+    color: var(--primary-color2);
+    background-color: var(--primary-color);
+}
+
+
+
+.custom-div:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px var(--primary-color);
+}
+
+.custom-div:hover h2 a {
+    color: #000;
+    font-weight: 500;
+    transition: 0.1s;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 200;
+}
+
+h2 a {
+    color: var(--primary-color);
+
+}
+
+.dbvfbffcb {
+    border: 1px solid var(--primary-color2);
+}
+
+.container-fluid .row .col-12.text-center {
+    padding: 15px;
+    background-color: var(--primary-color2);
+    box-shadow: 0px 0px 4px 0px var(--primary-color);
+}
+
+#search {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+}
+
+#search:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 4px 0px var(--primary-color);
+}
+
+
+.search-icon {
+    cursor: pointer;
+    padding: 0px 10px;
+    font-size: 25px;
+}
+
+.search-icon:hover {
+    transition: all ease-in 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0px var(--primary-color);
+}
+
+form.gap-2 {
+    border-radius: 8px;
+}
+
+.srolll {
+    width: 100%;
+    height: 450px;
+    border-radius: 2px;
+    border: 1px solid #0000001a;
+    border-top: none;
+}
+
+.srolll1 {
+    width: 100%;
+    height: 100px;
+}
+
+#item-text {
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+#item-quantity {
+    font-size: 18px;
+    border: none;
+    outline: none;
+    padding: 8px;
+}
+
+#checkbox {
+    cursor: pointer;
+}
+
+.border-bottom-main {
+    width: 97%;
+    margin: auto;
+    border-bottom: 1px solid #0000001a;
+}
+
+.main1 {
+    width: 5%;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.main2 {
+    width: 80%;
+    background-color: #fff;
+}
+
+.main2 label {
+    white-space: nowrap;
+}
+
+.main3 {
+    width: 5%;
+    cursor: pointer;
+    color: var(--primary-color);
+    box-shadow: 0px 0px 4px 0px var(--primary-color);
+}
+
+.main3:hover {
+    box-shadow: 0px 0px 10px 0px var(--primary-color);
+    transition: 0.3s;
+}
+
+.main4 {
+    width: 10%;
+}
+
+svg {
+    cursor: pointer;
+}
+
+.You-are {
+    border-bottom: 1px solid var(--primary-color);
+    padding: 3px 0;
+}
+
+.secondmain {
+    width: 75%;
+    height: 250px;
+    line-height: 30px;
+}
+
+.secondmain2 {
+    width: 25%;
+    height: 250px;
+    line-height: 30px;
+}
+
+#itemNameDisplay,
+#itemQuantityDisplay {
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color2);
+    border-left: none;
+    border-right: none;
+
+}
+
+.w-100.d-flex .w-75 p,
+.w-100.d-flex .w-25 p {
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.w-75 .h5 {
+    color: var(--primary-color);
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.w-25 .h5 {
+    color: var(--primary-color);
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.confirem-button {
+    padding: 8px 16px;
+    font-size: 20px;
+    background-color: var(--primary-color2);
+    color: var(--primary-color);
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirem-button:hover {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+    transition: all ease-in 0.1s;
+    color: var(--primary-color2);
+}
+
+.confirem-button1 {
+    padding: 0 30px;
+    margin-top: 15px;
+    background: none;
+    font-size: 20px;
+    border: none;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+/* table border */
+.billname {
+    background-color: var(--primary-color2);
+}
+
+#table-select {
+    cursor: pointer;
+    border: 1px solid var(--primary-color);
+}
+
+.table-bordered {
+    border: 1px solid var(--primary-color);
+}
+
+.table-bordered thead th {
+    border: 1px solid var(--primary-color);
+}
+
+.table-bordered tbody td {
+    border: 1px solid var(--primary-color);
+}
+
+.table-bordered tfoot td {
+    border: 1px solid var(--primary-color);
+}
+
+
+.kitchnesroll {
+    width: 100%;
+    height: 150px;
+}
+
+/* ------------kitchen---------- */
+
+.kitchenmainborder {
+    background-color: var(--primary-color2);
+    box-shadow: 0px 0px 4px 0px var(--primary-color);
+}
+
+.btn-kithchen {
+    padding: 8px 12px;
+    border: none;
+    background-color: var(--primary-color2);
+    outline: none;
+}
+
+/* -------- Bill ----------- */
+
+.billname h3 {
+    margin-top: 12px;
+}
+
+/* ---- popup ----- */
+
+.popup {
+    border: 1px solid #0000001a;
+}

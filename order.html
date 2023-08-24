@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <title>Order</title>
+
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .h5 {
+            font-size: 1.5rem;
+        }
+
+        .form-control,
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+            border-color: var(--primary-color);
+        }
+
+        @media screen and (max-width: 320px) {
+            .h5 {
+                font-size: 0.6rem;
+            }
+
+            .confirem-button {
+                font-size: 0.3rem;
+                padding: 6px 16px;
+            }
+
+            .confirem-button1 {
+                font-size: 0.3rem;
+                padding: 6px 16px;
+            }
+
+            #itemNameDisplay,
+            #itemQuantityDisplay {
+                font-size: 0.6rem;
+                padding: 0;
+            }
+
+            .main2 label {
+                font-size: 0.6rem;
+            }
+
+            .dropdownoder {
+                font-size: 0.5rem;
+                padding: 2px;
+            }
+
+            #search {
+                font-size: 0.6rem;
+            }
+
+            input[type="checkbox"] {
+                height: 15px;
+            }
+
+            .container-fluid .row .col-12.text-center {
+                padding: 5px;
+            }
+        }
+
+        @media screen and (min-width: 321px) and (max-width: 480px) {
+            .h5 {
+                font-size: 0.8rem;
+            }
+
+            .confirem-button {
+                font-size: 0.6rem;
+            }
+
+            .confirem-button1 {
+                font-size: 0.6rem;
+            }
+
+            #itemNameDisplay,
+            #itemQuantityDisplay {
+                font-size: 0.7rem;
+                padding: 0;
+            }
+
+            .main2 label {
+                font-size: 0.7rem;
+            }
+
+            .dropdownoder {
+                font-size: 0.5rem;
+                padding: 1px;
+            }
+
+            #search {
+                font-size: 0.6rem;
+            }
+
+            input[type="checkbox"] {
+                height: 15px;
+            }
+
+            .container-fluid .row .col-12.text-center {
+                padding: 7px;
+            }
+        }
+
+        @media screen and (min-width: 481px) and (max-width: 767px) {
+            .h5 {
+                font-size: 1rem;
+            }
+
+            .confirem-button {
+                font-size: 1rem;
+            }
+
+            .confirem-button1 {
+                font-size: 1rem;
+            }
+
+            .main2 label {
+                font-size: 0.9rem;
+            }
+
+            .dropdownoder {
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+                padding: 2px;
+            }
+
+            #search {
+                font-size: 0.8rem;
+            }
+
+            .container-fluid .row .col-12.text-center {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+            .h5 {
+                font-size: 1.2rem;
+            }
+
+            .confirem-button {
+                font-size: 1.1rem;
+            }
+
+            .confirem-button1 {
+                font-size: 1.1rem;
+            }
+
+            .dropdownoder {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+
+            }
+
+            #search {
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+            .h5 {
+                font-size: 1.3rem;
+            }
+
+            .dropdownoder {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .h5 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class=" container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-lg-10 mx-auto">
+                    <div class="col-12 text-center">
+                        <div class="col-lg-11 col-md-12 gap-3 mx-auto d-flex">
+                            <select id="table-select" class="form-control w-25 dropdownoder">
+                                <option value="" hidden>Select Table:</option>
+                                <option value="table1">Table 1</option>
+                                <option value="table2">Table 2</option>
+                                <option value="table2">Table 3</option>
+                                <option value="table2">Table 4</option>
+                                <option value="table2">Table 5</option>
+                                <option value="table2">Table 6</option>
+                                <option value="table2">Table 7</option>
+                                <!-- Add more table options as needed -->
+                            </select>
+                            <input type="text" name="" id="search" placeholder="Search...."
+                                class="w-100 fw-light text-center rounded-3">
+                            <a class="text-center search-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 512 512">
+                                    <style>
+                                        svg {
+                                            fill: rgb(35, 30, 65);
+                                        }
+                                    </style>
+                                    <path
+                                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <!-- <div class="col-lg-10 mx-auto">
+                    <div class="col-12 text-center">
+                        <div class="col-lg-10 col-md-12 gap-3 mx-auto d-flex">
+                            <select id="table-select" class="form-control w-25 dropdownoder">
+                                <option value="" hidden>Select Table:</option>
+                                <option value="table1">Table 1</option>
+                                <option value="table2">Table 2</option>
+                                <option value="table2">Table 3</option>
+                                <option value="table2">Table 4</option>
+                                <option value="table2">Table 5</option>
+                                <option value="table2">Table 6</option>
+                                <option value="table2">Table 7</option>
+                         
+                            </select>
+                            <input type="text" name="" id="search" placeholder="Search...."
+                                class="w-100 fw-light text-center rounded-3">
+                            <a class="text-center search-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 512 512">
+                                    <style>
+                                        svg {
+                                            fill: rgb(35, 30, 65);
+                                        }
+                                    </style>
+                                    <path
+                                        d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col=lg-10 mx-auto p-2">
+                    <div class="col-12">
+                        <div class="col-lg-12 col-md-12 gap-3 mx-auto d-flex">
+                            <div class="overflow-auto srolll">
+                                <div class="col-6 mt-3 mx-auto">
+                                    <select id="table-select" class="form-control w-50 dropdownoder rounded-1">
+                                        <option value="" hidden>Item Catagaries</option>
+                                        <option value="item1">Table 1</option>
+                                        <option value="item2">Table 2</option>
+                                        <option value="item3">Table 3</option>
+                                        <option value="item4">Table 4</option>
+                                        <option value="item5">Table 5</option>
+                                        <!-- Add more table options as needed -->
+                                    </select>
+                                </div>
+                                <!-- item 1 -->
+                                <form action="" class="gap-2 p-3  d-flex border-bottom-main">
+                                    <div class="rounded-2 main1">
+                                        <input type="checkbox" name="" id="checkbox" class="w-100 mt-2"
+                                            onchange="updateItemDetails('item1')">
+                                    </div>
+                                    <div class="rounded-2 main2 overflow-x-hidden">
+                                        <label for="" class="w-100 rounded-2 p-2 d-inline-block w-100">item 1</label>
+                                    </div>
+                                    <div class="rounded-2 text-center main3" data-item="item" data-value="-1">
+                                        <span class="plus-minus"><svg class="mt-3" xmlns="http://www.w3.org/2000/svg"
+                                                height="0.6em" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="rounded-2 text-center main4">
+                                        <input type="number" class="text-center rounded-2 w-100" id="item-quantity"
+                                            min="0" max="30" value="1">
+                                    </div>
+                                    <div class="rounded-2 text-center main3" data-item="item" data-value="1">
+                                        <span class="plus-minus"><svg class="mt-3" xmlns="http://www.w3.org/2000/svg"
+                                                height="0.6em" viewBox="0 0 448 512">
+                                                <path
+                                                    d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </form>
+
+                                <!-- Add more item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="text-center w-25 mx-auto  h5 mt-3">You are at above</div> -->
+                <div class="col-lg-12 col-md-12 mx-auto rounded-2">
+                    <div class="w-100 d-flex rounded-2">
+                        <div class="w-75 sameclass">
+                            <p class="h5 text-center">Order Item:</p>
+                        </div>
+                        <div class="w-25 text-center sameclass">
+                            <p class="h5">Quantity:</p>
+                        </div>
+                    </div>
+                    <div class="w-100 d-flex overflow-auto">
+                        <div class="secondmain p-4 w-100">
+                            <div class="" id="itemNameDisplay"></div>
+                        </div>
+                        <div class="secondmain2 p-4 text-center">
+                            <div class="text-center" id="itemQuantityDisplay"></div>
+                        </div>
+                    </div>
+                    <div class="d-flex w-75 mx-auto rounded-3 mt-3">
+                        <div class=" w-50 bg-white">
+                            <p class="confirem-button1">Read Order</p>
+                        </div>
+                        <div class="text-end p-2 w-50">
+                            <button class="confirem-button">Confirm order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
