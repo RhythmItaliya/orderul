@@ -14,10 +14,39 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet" />
     <title>Admin panal</title>
+
+    <style>
+        h2 {
+            color: var(--primary-color);
+        }
+
+        ul li {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .col-md-4,
+        .col-md-8 {
+            padding: 20px;
+        }
+
+        .row {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+
+        .form-control,
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    </style>
 </head>
 
 <body>
 
+    <div>
+        <h1 class="text-center headline p-3"><span class="">Hii!! Rhythm</span></h1>
+    </div>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
@@ -28,13 +57,10 @@
                         <label for="categoryName" class="form-label">Category Name</label>
                         <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Category</button>
+                    <button type="button" class="btn btn-primary btn-lg"
+                        style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
+                        Category</button>
                 </form>
-                <ul class="list-group mt-3">
-                    <li class="list-group-item">Category 1</li>
-                    <li class="list-group-item">Category 2</li>
-
-                </ul>
             </div>
             <div class="col-md-8">
                 <h2>Menu Items</h2>
@@ -49,22 +75,41 @@
                         <select class="form-select" id="menuCategory">
                             <option>Category 1</option>
                             <option>Category 2</option>
-
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="itemPrice" class="form-label">Price</label>
                         <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Item</button>
+                    <button type="button" class="btn btn-primary btn-lg"
+                        style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
+                        Item</button>
                 </form>
+            </div>
+            <!-- <hr> -->
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="col-12 p-3">
+                    <h4>Categories :</h4>
+                    <select class="form-select" id="menuCategory">
+                        <option>Category 1</option>
+                        <option>Category 2</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="col-12 p-3">
+                <h4>Menu Items :</h4>
                 <ul class="list-group mt-3">
-                    <li class="list-group-item">Item 1 (Category 1) - $10</li>
-                    <li class="list-group-item">Item 2 (Category 2) - $15</li>
-
+                    <li class="list-group-item">Item 1 (Category 1) - rs10</li>
+                    <li class="list-group-item">Item 2 (Category 2) - rs15</li>
                 </ul>
             </div>
         </div>
+    </div>
     </div>
 
 </body>
