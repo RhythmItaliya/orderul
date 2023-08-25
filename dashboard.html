@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <title>Admin panal</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Menu Categories</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label">Category Name</label>
+                        <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
+                </form>
+                <ul class="list-group mt-3">
+                    <li class="list-group-item">Category 1</li>
+                    <li class="list-group-item">Category 2</li>
+
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <h2>Menu Items</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="menuItemName" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="menuItemName" placeholder="Enter item name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="menuCategory" class="form-label">Select Category</label>
+                        <select class="form-select" id="menuCategory">
+                            <option>Category 1</option>
+                            <option>Category 2</option>
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemPrice" class="form-label">Price</label>
+                        <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+                <ul class="list-group mt-3">
+                    <li class="list-group-item">Item 1 (Category 1) - $10</li>
+                    <li class="list-group-item">Item 2 (Category 2) - $15</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
