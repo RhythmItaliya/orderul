@@ -20,6 +20,18 @@
             font-size: 1.5rem;
         }
 
+        .row {
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            padding: 12px;
+            margin: 20px 0;
+        }
+
+        .form-control,
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+
         @media screen and (max-width: 320px) {
             .billname h3 {
                 font-size: 1rem;
@@ -83,7 +95,7 @@
         <!-- Bill section -->
         <div class="row mt-3">
             <div class="col-lg-12">
-                <div class="table-responsive">
+                <div class="table-responsive mt-2">
                     <table class="col-12 table table-bordered table-striped">
                         <thead>
                             <tr class="text-center">

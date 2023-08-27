@@ -56,7 +56,8 @@ h2 a {
 .container-fluid .row .col-12.text-center {
     padding: 15px;
     background-color: var(--primary-color2);
-    box-shadow: 0px 0px 4px 0px var(--primary-color);
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 #search {
@@ -184,7 +185,7 @@ svg {
     border: 1px solid var(--primary-color2);
     border-left: none;
     border-right: none;
-
+    border-top: none;
 }
 
 .w-100.d-flex .w-75 p,
@@ -310,5 +311,5 @@ input[type="number"]::-webkit-outer-spin-button {
 /* ---- popup ----- */
 
 .popup {
-    border: 1px solid #0000001a;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }

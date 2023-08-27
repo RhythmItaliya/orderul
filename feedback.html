@@ -31,7 +31,19 @@
         }
 
         .app {
-            width: 90%;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            padding: 10px;
+        }
+
+        .form-control,
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+            border-color: var(--primary-color);
+        }
+
+        .app {
+            width: 100%;
             max-width: 500px;
         }
 
@@ -56,7 +68,7 @@
 
 <body class="m-0 justify-content-center align-items-center text-center d-flex">
     <div class="app mx-auto">
-        <p class="m-0 p-0 h4">Let us know how we did</p>
+        <p class="m-2 p-0 h4">Let us know how we did</p>
 
         <div class="container d-flex flex-wrap justify-content-center align-items-center">
             <div class="item d-flex justify-content-center align-items-center ">
@@ -99,7 +111,7 @@
                     <div class="col-12 form-group mt-4">
                         <textarea class="form-control" rows="4" placeholder="Message"></textarea>
                     </div>
-                    <div class="col-6 mx-auto mt-4">
+                    <div class="col-6 mx-auto mt-4 m-2">
                         <button type="button" class="btn btn-primary btn-block">Send feedback</button>
                     </div>
                 </div>
