@@ -17,7 +17,7 @@
     cursor: pointer;
     background-color: var(--primary-color2);
     box-shadow: 0 2px 5px var(--primary-color);
-
+    user-select: none;
 }
 
 .headline {
