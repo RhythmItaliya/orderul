@@ -5,12 +5,14 @@
 
 if (window.localStorage.getItem('X-Access-Token') != null) {
     const role = window.localStorage.getItem('role');
-    if (role === 'Dashboard') {
+    if (role === 'dashboardAdmin') {
         window.location.href = "/dashboard.html";
-    } else if (role === 'Kitchen') {
-        window.location.href = "/kitchen.html";
-    } else if (role === 'Billing') {
+    } else if (role === 'billAdmin') {
         window.location.href = "/bill.html";
+    } else if (role === 'kitchenAdmin') {
+        window.location.href = "/kitchen.html";
+    } else if (role === 'orderAdmin') {
+        window.location.href = "/order.html";
     } else {
         alert('Unknown role');
     }
@@ -20,8 +22,7 @@ $('#loginbtn').click(function () {
     let emailOrUsername = $('#email').val();
     let password = $('#password').val();
 
-
-     // if (!isEmail(email)) {
+    // if (!isEmail(email)) {
     //     $('#email').addClass('is-invalid');
     //     $('#invalidFeedback').removeClass('d-none');
     //     return;
@@ -29,7 +30,7 @@ $('#loginbtn').click(function () {
 
     const loginData = {
         userName: emailOrUsername,
-        password: password
+        password: password,
     };
 
     $.ajax({
@@ -43,15 +44,18 @@ $('#loginbtn').click(function () {
             window.localStorage.setItem('X-Access-Token', token);
             window.localStorage.setItem('role', role);
 
-            if (role === 'Dashboard') {
+            if (role === 'dashboardAdmin') {
                 window.location.href = "/dashboard.html";
-            } else if (role === 'Kitchen') {
-                window.location.href = "/kitchen.html";
-            } else if (role === 'Billing') {
+            } else if (role === 'billAdmin') {
                 window.location.href = "/bill.html";
+            } else if (role === 'kitchenAdmin') {
+                window.location.href = "/kitchen.html";
+            } else if (role === 'orderAdmin') {
+                window.location.href = "/order.html";
             } else {
                 alert('Unknown role');
             }
+
         },
         error: function (value) {
             if (value.status == 403) {

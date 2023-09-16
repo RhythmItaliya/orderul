@@ -9,7 +9,6 @@ $('#register-btn').click(function () {
         alert('Please fill in all fields.');
         return false;
     }
-
     if (password !== repeatPassword) {
         alert('Passwords do not match.');
         return false;
@@ -19,7 +18,7 @@ $('#register-btn').click(function () {
         userName: username,
         emailId: email,
         password: password,
-        login: role,
+        role: role,
     };
 
     $.ajax({
