@@ -6,16 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js"></script>
+    <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/font-awesome.all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet" />
-    <title>Admin panal</title>
-
+    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
     <style>
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        .sidebar h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
         h2 {
             color: var(--primary-color);
         }
@@ -30,10 +77,6 @@
             padding: 20px;
         }
 
-        .row {
-            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-        }
-
         .form-control,
         #menuCategory,
         .form-control:focus {
@@ -45,91 +88,185 @@
 
 <body>
 
-    <div>
-        <h1 class="text-center headline p-3"><span class="">Hii!! Rhythm</span></h1>
+    <div class="sidebar">
+        <h1 style="color:var(--primary-color2); border:none; user-select: none;">
+            Dashboard</h1>
+        <a href="#" class="menu-link user-select-none " id="categories-link">Menu Categories</a>
+        <a href="#" class="menu-link user-select-none " id="items-link">Menu Items</a>
+        <a href="#" class="menu-link user-select-none " id="login-link">Employee Task Login</a>
+        <div class="mt-5 mx-auto justify-content-center d-flex">
+            <button id="logout" class="btn btn-danger">log-out</button>
+        </div>
     </div>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Menu Categories</h2>
+
+    <div class="content">
+        <div id="categories" class="justify-content-center d-flex">
+            <div class="col-md-8">
+                <h2>Menu Categories :</h2>
                 <hr>
                 <form>
                     <div class="mb-3">
-                        <label for="categoryName" class="form-label">Category Name</label>
                         <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
                     </div>
                     <button type="button" class="btn btn-primary btn-lg"
                         style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
                         Category</button>
                 </form>
+
+                <div class="mt-5">
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item d-flex ">
+                            <div class="col-11"> Item 1 </div>
+                            <div class="col-1 text-center text-decoration-underline text-info">
+                                <a href="#"> Delete </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
+        </div>
+
+        <div id="items" class="justify-content-center d-flex d-none">
             <div class="col-md-8">
-                <h2>Menu Items</h2>
+                <h2>Menu Items :</h2>
                 <hr>
                 <form>
                     <div class="mb-3">
-                        <label for="menuItemName" class="form-label">Item Name</label>
                         <input type="text" class="form-control" id="menuItemName" placeholder="Enter item name">
                     </div>
+
                     <div class="mb-3">
-                        <label for="menuCategory" class="form-label">Select Category</label>
+                        <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
+                    </div>
+                    <div class="mb-3">
                         <select class="form-select" id="menuCategory">
+                            <option value="" hidden>--Select Category--</option>
                             <option>Category 1</option>
                             <option>Category 2</option>
                         </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="itemPrice" class="form-label">Price</label>
-                        <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
                     </div>
                     <button type="button" class="btn btn-primary btn-lg"
                         style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
                         Item</button>
                 </form>
+
+                <div class="mt-5">
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item d-flex ">
+                            <div class="col-11"> Item 1 (rs 10) </div>
+                            <div class="col-1 text-center text-decoration-underline text-info">
+                                <a href="#"> Delete </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <!-- <hr> -->
         </div>
-    </div>
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-12 p-0">
-                <div class="col-12 p-3">
-                    <h4>Categories :</h4>
-                    <select class="form-select" id="menuCategory">
-                        <option>Category 1</option>
-                        <option>Category 2</option>
-                    </select>
+
+
+        <div id="loginpage" class="justify-content-center d-flex d-none">
+            <div class="col-md-8 mx-auto">
+                <h2>Select employee login roll:</h2>
+                <hr>
+                <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                            aria-controls="pills-login" aria-selected="true">Login</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                            aria-controls="pills-register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="dash-email" class="form-control" />
+                            <label class="form-label" for="">Email or username</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-password" class="form-control" />
+                            <label class="form-label" for="">Password</label>
+                        </div>
+
+                        <button type="submit" id="dash-loginbtn" class="btn btn-primary btn-block mb-4"
+                            style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Log
+                            -
+                            in</button>
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="dash-rusename" class="form-control" />
+                            <label class="form-label" for="">Username</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="dash-remail" class="form-control" />
+                            <label class="form-label" for="">Email</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-rpassword" class="form-control" />
+                            <label class="form-label" for="">Password</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-rrepetatpassword" class="form-control" />
+                            <label class="form-label" for="">Repeat password</label>
+                        </div>
+
+                        <div class="mt-4">
+                            <select id="dash-loginrole" class="form-control">
+                                <option value="" hidden>--Select Employee Roll--</option>
+                                <option value="kitchenAdmin">Kitchen Master</option>
+                                <option value="billAdmin">Bill Master</option>
+                                <option value="orderAdmin">Order Master</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" id="dash-registerbtn" class="btn btn-primary btn-block mb-3 mt-4"
+                            style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Sign
+                            -
+                            in</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-12 p-3">
-                <h4>Menu Items :</h4>
-                <ul class="list-group mt-3">
-                    <li class="list-group-item d-flex ">
-                        <div class="col-11">Item 1 (Category 1) - rs10</div>
-                        <div class="col-1 text-center "><a href="#" class="text-decoration-underline">Delete</a></div>
-                    </li>
-                    <li class="list-group-item d-flex ">
-                        <div class="col-11">Item 1 (Category 1) - rs10</div>
-                        <div class="col-1 text-center "><a href="#" class="text-decoration-underline">Delete</a></div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-3 p-3 mx-auto text-center">
-        <button id="logout" class="btn btn-danger">log-out</button>
-    </div>
-
     <script src="js/jquery.min.js"></script>
-    <script src="js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+    <script src="js/dashlogin.js"></script>
+    <script src="js/dashregister.js"></script>
     <script src="js/logout.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#categories-link").click(function () {
+                $('#categories').removeClass('d-none');
+                $('#items').addClass('d-none');
+                $('#loginpage').addClass('d-none');
+            });
+            $("#items-link").click(function () {
+                $('#items').removeClass('d-none');
+                $('#loginpage').addClass('d-none');
+                $('#categories').addClass('d-none');
+            });
+            $("#login-link").click(function () {
+                $('#loginpage').removeClass('d-none');
+                $('#categories').addClass('d-none');
+                $('#items').addClass('d-none');
+            });
+        });
+    </script>
 
 </body>
 

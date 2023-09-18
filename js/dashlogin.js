@@ -1,18 +1,7 @@
-// // function isEmail(email) {
-// //     const emailrejex = /^([a-zA-Z\.\-0-9]+\@[a-z0-9]+(\.\w+.\w+|\.\w+))$/;
-// //     return emailrejex.test(email);
-// // }
 
-
-$('#loginbtn').click(function () {
-    let emailOrUsername = $('#email').val();
-    let password = $('#password').val();
-
-    // if (!isEmail(email)) {
-    //     $('#email').addClass('is-invalid');
-    //     $('#invalidFeedback').removeClass('d-none');
-    //     return;
-    // }
+$('#dash-loginbtn').click(function () {
+    let emailOrUsername = $('#dash-email').val();
+    let password = $('#dash-password').val();
 
     const loginData = {
         userName: emailOrUsername,

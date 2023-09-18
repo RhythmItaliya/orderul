@@ -1,11 +1,11 @@
-$('#register-btn').click(function () {
-    const username = $('#rusename').val();
-    const email = $('#remail').val();
-    const password = $('#rpassword').val();
-    const repeatPassword = $('#rrepetatpassword').val();
-    const role = $('#loginrole').val();
+$('#dash-registerbtn').click(function () {
+    const username = $('#dash-rusename').val();
+    const email = $('#dash-remail').val();
+    const password = $('#dash-rpassword').val();
+    const repeatPassword = $('#dash-rrepetatpassword').val();
+    const role = $('#dash-loginrole').val();
 
-    if (!username || !email || !password || !repeatPassword) {
+    if (!username || !email || !password || !repeatPassword || !role) {
         alert('Please fill in all fields.');
         return false;
     }
@@ -18,7 +18,7 @@ $('#register-btn').click(function () {
         userName: username,
         emailId: email,
         password: password,
-        role:role
+        role: role,
     };
 
     $.ajax({
@@ -26,9 +26,9 @@ $('#register-btn').click(function () {
         method: 'POST',
         data: JSON.stringify(userData),
         contentType: 'application/json',
-        success: function () {
+        success: function (res) {
             alert('Registration successful. Please check your email for confirmation.');
-            window.location.href = '/dashboard.html';
+            window.location.href = '/login.html';
         },
         error: function () {
             alert('Registration failed');
