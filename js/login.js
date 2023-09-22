@@ -1,18 +1,10 @@
-// // function isEmail(email) {
-// //     const emailrejex = /^([a-zA-Z\.\-0-9]+\@[a-z0-9]+(\.\w+.\w+|\.\w+))$/;
-// //     return emailrejex.test(email);
-// // }
-
+if(window.localStorage.getItem('X-Access-Token') != null){
+    window.location.href = "/dashboard.html";
+}
 
 $('#loginbtn').click(function () {
     let emailOrUsername = $('#email').val();
     let password = $('#password').val();
-
-    // if (!isEmail(email)) {
-    //     $('#email').addClass('is-invalid');
-    //     $('#invalidFeedback').removeClass('d-none');
-    //     return;
-    // }
 
     const loginData = {
         userName: emailOrUsername,
@@ -26,9 +18,13 @@ $('#loginbtn').click(function () {
         contentType: 'application/json',
         success: function (res) {
             token = res["X-Access-Token"];
+
             const role = res["role"];
             window.localStorage.setItem('X-Access-Token', token);
             window.localStorage.setItem('role', role);
+
+            const username = res["name"];
+            window.localStorage.setItem('name', username );
             if (role === 'dashboardAdmin') {
                 window.location.href = "/dashboard.html";
             } else if (role === 'billAdmin') {
@@ -40,13 +36,11 @@ $('#loginbtn').click(function () {
             } else {
                 alert('Unknown role');
             }
-
         },
         error: function (value) {
             if (value.status == 403) {
                 alert('Please check your confirmation email');
                 return false;
-
             } else if (value.status == 401) {
                 alert('Your username or password is incorrect');
                 return false;

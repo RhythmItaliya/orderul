@@ -91,6 +91,7 @@
     <div class="sidebar">
         <h1 style="color:var(--primary-color2); border:none; user-select: none;">
             Dashboard</h1>
+        <h5 id="dashbordname" class="text-center">xyz</h5>
         <a href="#" class="menu-link user-select-none " id="categories-link">Menu Categories</a>
         <a href="#" class="menu-link user-select-none " id="items-link">Menu Items</a>
         <a href="#" class="menu-link user-select-none " id="login-link">Employee Task Login</a>
@@ -104,14 +105,12 @@
             <div class="col-md-8">
                 <h2>Menu Categories :</h2>
                 <hr>
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg"
-                        style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
-                        Category</button>
-                </form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
+                </div>
+                <button type="button" id="btnCategory" class="btn btn-primary btn-lg"
+                    style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
+                    Category</button>
 
                 <div class="mt-5">
                     <ul class="list-group mt-3">
@@ -131,25 +130,24 @@
             <div class="col-md-8">
                 <h2>Menu Items :</h2>
                 <hr>
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="menuItemName" placeholder="Enter item name">
-                    </div>
 
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" id="menuCategory">
-                            <option value="" hidden>--Select Category--</option>
-                            <option>Category 1</option>
-                            <option>Category 2</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-lg"
-                        style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
-                        Item</button>
-                </form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="menuItemName" placeholder="Enter item name">
+                </div>
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" id="menuCategory">
+                        <option value="" hidden>--Select Category--</option>
+                        <option value="">Category 1</option>
+                        <option value="">Category 2</option>
+                    </select>
+                </div>
+                <button type="button" id="btnmenuitem" class="btn btn-primary btn-lg"
+                    style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
+                    Item</button>
 
                 <div class="mt-5">
                     <ul class="list-group mt-3">
@@ -194,11 +192,13 @@
                             <label class="form-label" for="">Password</label>
                         </div>
 
-                        <button type="submit" id="dash-loginbtn" class="btn btn-primary btn-block mb-4"
-                            style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Log
-                            -
-                            in</button>
-
+                        <!-- log in button -->
+                        <div class="justify-content-center d-flex align-item-center">
+                            <button type="submit" id="dash-loginbtn" class="btn btn-primary btn-block mb-4 w-25"
+                                style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Log
+                                -
+                                in</button>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
 
@@ -231,22 +231,25 @@
                             </select>
                         </div>
 
-                        <!-- Submit button -->
-                        <button type="submit" id="dash-registerbtn" class="btn btn-primary btn-block mb-3 mt-4"
-                            style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Sign
-                            -
-                            in</button>
+                        <!-- sign in button -->
+                        <div class="justify-content-center d-flex align-item-center">
+                            <button type="submit" id="dash-registerbtn" class="btn btn-primary btn-block mb-3 mt-4 w-25"
+                                style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Sign
+                                -
+                                in</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-    <script src="js/dashlogin.js"></script>
-    <script src="js/dashregister.js"></script>
-    <script src="js/logout.js"></script>
+    <script type="text/javascript" src="js/dashlogin.js"></script>
+    <script type="text/javascript" src="js/dashregister.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
+    <script type="text/javascript" src="js/addcatagries.js"></script>
 
     <script>
         $(document).ready(function () {

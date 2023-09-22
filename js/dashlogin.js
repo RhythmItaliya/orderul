@@ -1,4 +1,3 @@
-
 $('#dash-loginbtn').click(function () {
     let emailOrUsername = $('#dash-email').val();
     let password = $('#dash-password').val();
