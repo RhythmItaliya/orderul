@@ -100,6 +100,7 @@
         </div>
     </div>
 
+
     <div class="content">
         <div id="categories" class="justify-content-center d-flex">
             <div class="col-md-8">
@@ -112,16 +113,7 @@
                     style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
                     Category</button>
 
-                <div class="mt-5">
-                    <ul class="list-group mt-3">
-                        <li class="list-group-item d-flex ">
-                            <div class="col-11"> Item 1 </div>
-                            <div class="col-1 text-center text-decoration-underline text-info">
-                                <a href="#"> Delete </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <div id="categoriesList"></div>
 
             </div>
         </div>
@@ -132,33 +124,22 @@
                 <hr>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="menuItemName" placeholder="Enter item name">
+                    <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
                 </div>
 
                 <div class="mb-3">
                     <input type="text" class="form-control" id="itemPrice" placeholder="Enter item price">
                 </div>
+
                 <div class="mb-3">
-                    <select class="form-select" id="menuCategory">
-                        <option value="" hidden>--Select Category--</option>
-                        <option value="">Category 1</option>
-                        <option value="">Category 2</option>
-                    </select>
+                    <select class="form-select" id="optionmenuCategorylist"></select>
                 </div>
+
                 <button type="button" id="btnmenuitem" class="btn btn-primary btn-lg"
                     style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Add
                     Item</button>
 
-                <div class="mt-5">
-                    <ul class="list-group mt-3">
-                        <li class="list-group-item d-flex ">
-                            <div class="col-11"> Item 1 (rs 10) </div>
-                            <div class="col-1 text-center text-decoration-underline text-info">
-                                <a href="#"> Delete </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <div id="menuitemlist"></div>
 
             </div>
         </div>
@@ -248,8 +229,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
     <script type="text/javascript" src="js/dashlogin.js"></script>
     <script type="text/javascript" src="js/dashregister.js"></script>
-    <script type="text/javascript" src="js/logout.js"></script>
+    <script type="text/javascript" src="js/menuitem.js"></script>
     <script type="text/javascript" src="js/addcatagries.js"></script>
+    <script type="text/javascript" src="js/logout.js"></script>
 
     <script>
         $(document).ready(function () {

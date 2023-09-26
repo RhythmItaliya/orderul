@@ -17,18 +17,15 @@ $('#dash-loginbtn').click(function () {
             const role = res["role"];
             window.localStorage.setItem('X-Access-Token', token);
             window.localStorage.setItem('role', role);
-            if (role === 'dashboardAdmin') {
-                window.location.href = "/dashboard.html";
-            } else if (role === 'billAdmin') {
+            if (role === 'billAdmin') {
                 window.location.href = "/bill.html";
             } else if (role === 'kitchenAdmin') {
                 window.location.href = "/kitchen.html";
             } else if (role === 'orderAdmin') {
-                window.location.href = "/order.html";
+                window.location.href = "/table.html";
             } else {
                 alert('Unknown role');
             }
-
         },
         error: function (value) {
             if (value.status == 403) {
