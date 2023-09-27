@@ -59,7 +59,7 @@ $.ajax({
           <div>
             <ul class="list-group mt-3">
               <li class="list-group-item d-flex">
-                <div class="col-11">${menuItem.name}&nbsp&nbsp[${menuItem.itemPrice}]</div>
+                <div class="col-11">${menuItem.name}&nbsp&nbsp - &nbsp${menuItem.itemPrice}₹</div>
                 <div class="col-1 text-center text-decoration-underline text-info">
                   <a href="#">Delete</a>
                 </div>

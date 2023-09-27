@@ -93,7 +93,7 @@ form.gap-2 {
     outline: none;
 }
 
-#item-quantity {
+.item-quantity {
     font-size: 18px;
     border: none;
     outline: none;

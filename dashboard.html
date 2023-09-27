@@ -92,6 +92,7 @@
         <h1 style="color:var(--primary-color2); border:none; user-select: none;">
             Dashboard</h1>
         <h5 id="dashbordname" class="text-center">xyz</h5>
+        <a href="#" class="menu-link user-select-none " id="tables-link">Manage Table</a>
         <a href="#" class="menu-link user-select-none " id="categories-link">Menu Categories</a>
         <a href="#" class="menu-link user-select-none " id="items-link">Menu Items</a>
         <a href="#" class="menu-link user-select-none " id="login-link">Employee Task Login</a>
@@ -102,7 +103,24 @@
 
 
     <div class="content">
-        <div id="categories" class="justify-content-center d-flex">
+
+        <!-- table list -->
+        <div id="tables" class="justify-content-center d-flex">
+            <div class="col-md-8">
+                <h2>Manage Tables :</h2>
+                <hr>
+                <div class="d-flex gap-3">
+                    <input type="number" id="tableNumber" class="form-control w-50" placeholder="Enter Table Number">
+                    <button id="createTable" class="btn btn-danger">Create Table</button>
+                </div>
+
+                <div id="tablemangelist"></div>
+
+            </div>
+        </div>
+
+
+        <div id="categories" class="justify-content-center d-flex d-none">
             <div class="col-md-8">
                 <h2>Menu Categories :</h2>
                 <hr>
@@ -232,23 +250,32 @@
     <script type="text/javascript" src="js/menuitem.js"></script>
     <script type="text/javascript" src="js/addcatagries.js"></script>
     <script type="text/javascript" src="js/logout.js"></script>
-
+    <script type="text/javascript" src="js/table.js"></script>
     <script>
         $(document).ready(function () {
+            $("#tables-link").click(function () {
+                $('#tables').removeClass('d-none');
+                $('#categories').addClass('d-none');
+                $('#items').addClass('d-none');
+                $('#loginpage').addClass('d-none');
+            });
             $("#categories-link").click(function () {
                 $('#categories').removeClass('d-none');
                 $('#items').addClass('d-none');
                 $('#loginpage').addClass('d-none');
+                $('#tables').addClass('d-none');
             });
             $("#items-link").click(function () {
                 $('#items').removeClass('d-none');
                 $('#loginpage').addClass('d-none');
                 $('#categories').addClass('d-none');
+                $('#tables').addClass('d-none');
             });
             $("#login-link").click(function () {
                 $('#loginpage').removeClass('d-none');
                 $('#categories').addClass('d-none');
                 $('#items').addClass('d-none');
+                $('#tables').addClass('d-none');
             });
         });
     </script>
