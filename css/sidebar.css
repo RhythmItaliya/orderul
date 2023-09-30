@@ -1,0 +1,32 @@
+.row{
+    justify-content: center;
+    display: flex;
+}
+
+.dashboard-title {
+    margin: 0;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.box button {
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .container {
+        margin-top: 0;
+    }
+    .box {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <title>Dash login and Register</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        .sidebar h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            cursor: pointer;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        h2 {
+            color: var(--primary-color);
+        }
+
+        ul li {
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .col-md-4,
+        .col-md-8 {
+            padding: 20px;
+        }
+
+        .form-control,
+        #menuCategory,
+        .form-control:focus {
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content mt-5 mx-auto w-75">
+        <div id="loginpage" class="justify-content-center d-flex">
+            <div class="col-md-8 mx-auto">
+                <h2>Select employee login roll:</h2>
+                <hr>
+                <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                            aria-controls="pills-login" aria-selected="true">Login</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                            aria-controls="pills-register" aria-selected="false">Register</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="dash-email" class="form-control" />
+                            <label class="form-label" for="">Email or username</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-password" class="form-control" />
+                            <label class="form-label" for="">Password</label>
+                        </div>
+
+                        <!-- log in button -->
+                        <div class="justify-content-center d-flex align-item-center">
+                            <button type="submit" id="dash-loginbtn" class="btn btn-primary btn-block mb-4 w-25"
+                                style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Log
+                                -
+                                in</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="dash-rusename" class="form-control" />
+                            <label class="form-label" for="">Username</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" id="dash-remail" class="form-control" />
+                            <label class="form-label" for="">Email</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-rpassword" class="form-control" />
+                            <label class="form-label" for="">Password</label>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="password" id="dash-rrepetatpassword" class="form-control" />
+                            <label class="form-label" for="">Repeat password</label>
+                        </div>
+
+                        <div class="mt-4">
+                            <select id="dash-loginrole" class="form-control">
+                                <option value="" hidden>--Select Employee Roll--</option>
+                                <option value="kitchenAdmin">Kitchen Master</option>
+                                <option value="billAdmin">Bill Master</option>
+                                <option value="orderAdmin">Order Master</option>
+                            </select>
+                        </div>
+
+                         <!-- sign in button -->
+                        <div class="justify-content-center d-flex align-item-center">
+                            <button type="submit" id="dash-registerbtn" class="btn btn-primary btn-block mb-3 mt-4 w-25"
+                                style="background-color: var(--primary-color2); color:var(--primary-color); border:none;">Sign
+                                -
+                                in</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <a href="dashboard.html" class="btn btn-warning">Back to Dashbod</a>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+    <script type="text/javascript" src="js/dashlogin.js"></script>
+    <script type="text/javascript" src="js/dashregister.js"></script>
+</body>
+
+</html>
