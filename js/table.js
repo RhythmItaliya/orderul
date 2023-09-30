@@ -31,7 +31,7 @@ $.ajax({
     success: function (res) {
     
         let options = ''; 
-        res.forEach((table) => {
+        res.map((table) => {
             options += `
                 <div class="col-md-2">
                     <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
@@ -52,7 +52,7 @@ $.ajax({
         
         let options = ''; 
 
-        res.forEach((table) => {
+        res.map((table) => {
             options += `
             <div>
             <ul class="list-group mt-3">

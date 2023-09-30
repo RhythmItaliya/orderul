@@ -53,7 +53,7 @@ $.ajax({
         let itemList = '';
         let itemNo = 0;
 
-        res.forEach((menuItem) => {
+        res.map((menuItem) => {
             itemNo++;
             itemList += `
           <div>

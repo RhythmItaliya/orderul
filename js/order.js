@@ -4,7 +4,7 @@ $.ajax({
         let itemList = '';
         let itemNo = 0;
 
-        res.forEach((menuItem) => {
+        res.map((menuItem) => {
             itemNo++;
             itemList +=
                 `<div id="allorderitem" class="gap-2 p-3  d-flex border-bottom-main" data-id="${menuItem.id}" data-price="${menuItem.itemPrice}">
@@ -50,7 +50,7 @@ $.ajax({
     method: 'GET',
     success: function (res) {
         let options = '<option value="">Select Category</option>';
-        res.forEach((category) => {
+        res.map((category) => {
             options += `<option value="${category.id}">${category.name}</option>`;
         });
         $('#orderAllcategroy').html(options);
@@ -60,11 +60,4 @@ $.ajax({
     },
 });
 
-// const itemnulist = []; $('.menuitem').change(function () {
-//     if ($(this).prop('checked')) {
-//         let itemid = $(this).parent().parent().data('id');
-//         let price = $(this).parent().parent().data('price');
-//         let qty = $(this).parent().parent().children()[3].childNodes[1].value;
-//         itemnulist['item-' + itemid] = { price: price, qty: qty };
-//     }
-// });
+
