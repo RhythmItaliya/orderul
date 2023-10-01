@@ -1,11 +1,20 @@
+const urlParams = new URLSearchParams(window.location.search);
+const uuid1 = urlParams.get('uuid');
+
 $.ajax({
     url: 'http://localhost:8080/all/tables',
     method: 'GET',
     success: function (res) {
         var options = '';
-        res.map((tablenu) => {
-            options += `<option value="${tablenu.table}">Table ${tablenu.table}</option>`;
+
+        res.forEach((tablenu) => {
+            if (tablenu.uuid === uuid1) {
+                options += `<option value="${tablenu.uuid}" selected="selected">Table ${tablenu.table}</option>`;
+            } else {
+                options += `<option value="${tablenu.uuid}" hidden>Table ${tablenu.table}</option>`;
+            }
         });
+
         $('#tableSelect').html(options);
     },
     error: function () {
@@ -114,9 +123,8 @@ $('#button22').click(function () {
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json',
-        success: function (response) {
-            window.location.href = "/popup.html"
-            console.log('Data sent successfully');
+        success: function () {
+            window.location.href = `/popup.html?uuid=${uuid1}`;
             jaishreeram();
         },
         error: function (error) {
@@ -124,4 +132,3 @@ $('#button22').click(function () {
         }
     });
 });
-

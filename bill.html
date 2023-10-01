@@ -72,21 +72,11 @@
     <div class="container">
         <div class="row mt-3">
             <div class="col-lg-12 mb-2 d-flex">
-                <div class="col-3 p-2">
-                    <select id="table-select" class="form-control w-100 p-2 dropdownoder">
-                        <option value="" hidden>Select Table:</option>
-                        <option value="table1">Table 1</option>
-                        <option value="table2">Table 2</option>
-                        <option value="table2">Table 3</option>
-                        <option value="table2">Table 4</option>
-                        <option value="table2">Table 5</option>
-                        <option value="table2">Table 6</option>
-                        <option value="table2">Table 7</option>
-                        <!-- Add more table options as needed -->
-                    </select>
+                <div class="col-0 p-2">
+                    <!-- <select class="form-control w-100 p-2 dropdownoder" id="billSelect1"></select> -->
                 </div>
-                <div class="col-9 text-center billname rounded-2">
-                    <h3>Hotel Name</h3>
+                <div class="col-12 text-center billname rounded-2">
+                    <h3>Bill Print</h3>
                 </div>
             </div>
         </div>
@@ -94,36 +84,14 @@
         <!-- Bill section -->
         <div class="row mt-3">
             <div class="col-lg-12">
-                <div class="table-responsive mt-2">
-                    <table class="col-12 table table-bordered table-striped">
-                        <thead>
-                            <tr class="text-center">
-                                <th><span>Items name</span></th>
-                                <th><span>Quantity</span></th>
-                                <th><span>Price</span></th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="billdisplay"></tbody>
-                        
-                        <tfoot>
-                            <!-- Total Price-->
-                            <tr>
-                                <td colspan="2" class="text-right fw-bold">Total Price:</td>
-                                <td class="text-center"><span>50$</span></td>
-                            </tr>
-                        </tfoot>
-                    </table>
+                <div class="table-responsive mt-2" id="billdisplay">
                 </div>
             </div>
         </div>
 
         <!-- Print button -->
-        <div class="row mt-3">
-            <div class="w-100 text-center p-2 w-50">
-                <button class="confirem-button">Print Bill</button>
-            </div>
-        </div>
+      
+        <div id="billbutton"></div>
     </div>
 
     <div class="mt-3 p-3 mx-auto text-center">
@@ -131,9 +99,11 @@
     </div>
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/logout.js"></script>
     <script src="js/bill.js"></script>
+    <script src="js/table.js"></script>
+    <script src="js/popup.js"></script>
+
 </body>
 
 </html>

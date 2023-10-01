@@ -9,19 +9,18 @@ function jaishreeram() {
                 let itemQuantityDisplaypopup = '';
 
                 lastOrder.items.forEach((item) => {
-                    itemNameDisplaypopup += 
-                        `<div class="d-flex p-2 gap-3"> <button class="btn btn-danger m-2 p-1 ">Remove</button> 
+                    itemNameDisplaypopup += `
                         <div class="p-2">${item.name}</div>
                         </div>`;
-                    itemQuantityDisplaypopup += 
-                    `<div class="p-1 m-2">
+                    itemQuantityDisplaypopup +=
+                        `<div>
                     <div class="p-2">${item.qty}</div>
                     </div>`;
-
                 });
 
                 $('#itemNameDisplaypopup').html(itemNameDisplaypopup);
                 $('#itemQuantityDisplaypopup').html(itemQuantityDisplaypopup);
+
             } else {
                 $('#itemNameDisplaypopup').html('No orders available');
                 $('#itemQuantityDisplaypopup').html('');
@@ -32,4 +31,27 @@ function jaishreeram() {
         },
     });
 }
+
 jaishreeram();
+
+
+// let tableNumber = '';
+// const currentUrl = window.location.href;
+// const uuidRegex = /uuid=([0-9a-fA-F-]+)/;
+// const match = currentUrl.match(uuidRegex);
+// const uuid = match ? match[1] : null;
+// if (uuid) {
+//     $.ajax({
+//         url: 'http://localhost:8080/all/tables',
+//         method: 'GET',
+//         async: false,
+//         success: function (data) {
+//             const filteredData = data.filter(item => item.uuid === uuid);
+//             (filteredData.length > 0)
+//             const tableName = filteredData[0].table;
+//             tableNumber = tableName;
+//             displayOrders(orders);
+//         },
+//     });
+// }
+// console.log(tableNumber);

@@ -11,9 +11,12 @@ $('#createTable').click(function () {
         contentType: 'application/json',
         data: JSON.stringify(createData),
         success: function (res) {
-            const newTable = `<div class="col-md-2">
-                <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
-                <h2><a href="#" class="h4 user-select-none">Table ${res.table}</a></h2>
+            const newTable = `
+            <div class="col-md-2">
+                <a href="/order.html?uuid=${res.uuid}">
+                    <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
+                </a>
+                <h4 class="h4 user-select-none">Table ${res.table}</h4>
             </div>`;
             $('#abc').append(newTable);
 
@@ -33,10 +36,12 @@ $.ajax({
         let options = '';
         res.map((table) => {
             options += `
-                <div class="col-md-2">
-                    <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
-                    <h2><a href="#" class="h4 user-select-none">Table ${table.table}</a></h2>
-                </div>`;
+            <div class="col-md-2">
+            <a href="/order.html?uuid=${table.uuid}">
+                <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
+            </a>
+            <h4 class="h4 user-select-none"> Table ${table.table}</h4>
+        </div>`;
         });
         $('#abc').html(options);
     },
@@ -46,15 +51,15 @@ $.ajax({
 });
 
 function loadTables() {
-$.ajax({
-    url: 'http://localhost:8080/all/tables',
-    method: 'GET',
-    success: function (res) {
+    $.ajax({
+        url: 'http://localhost:8080/all/tables',
+        method: 'GET',
+        success: function (res) {
 
-        let options = '';
+            let options = '';
 
-        res.map((table) => {
-            options += `
+            res.map((table) => {
+                options += `
             <div>
             <ul class="list-group mt-3">
             <li class="list-group-item d-flex" data-uuid="${table.uuid}">
@@ -65,13 +70,13 @@ $.ajax({
               </li>
             </ul>
           </div>`;
-        });
-        $('#tablemangelist').html(options);
-    },
-    error: function () {
-        alert('Failed to fetch tables.');
-    },
-});
+            });
+            $('#tablemangelist').html(options);
+        },
+        error: function () {
+            alert('Failed to fetch tables.');
+        },
+    });
 }
 loadTables();
 
@@ -102,7 +107,3 @@ $('#tablemangelist').on('click', 'a.delete-table', function (e) {
 
 
 
-$('#abc').on('click', 'a.h4', function () {
-    const tableUuid = $(this).closest('.list-group-item').data('uuid');
-    window.location.href = `/order.html?tableUuid=${tableUuid}`;
-});

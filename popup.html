@@ -107,7 +107,7 @@
                         <p id="buttoncancel" class="confirem-button readorder">Cancel Order</p>
                     </div>
                     <div class="text-end p-2 w-50">
-                        <button class="confirem-button" id="placeorderinkitch">Place order</button>
+                        <button class="confirem-button" id="redirectpopup">Place order</button>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
 
     <script>
         document.getElementById("buttoncancel").addEventListener("click", function () {
-            window.location.href = "/table.html";
+            window.location.href = "/table.html?uuid=${uuid}";
         });
     </script>
 
@@ -125,6 +125,7 @@
     <script src="js/logout.js"></script>
     <script src="js/popup.js"></script>
     <script src="js/kitchen.js"></script>
+    <script src="js/bill.js"></script>
 
 </body>
 
