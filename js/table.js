@@ -45,6 +45,7 @@ $.ajax({
     },
 });
 
+function loadTables() {
 $.ajax({
     url: 'http://localhost:8080/all/tables',
     method: 'GET',
@@ -56,11 +57,11 @@ $.ajax({
             options += `
             <div>
             <ul class="list-group mt-3">
-              <li class="list-group-item d-flex">
+            <li class="list-group-item d-flex" data-uuid="${table.uuid}">
                 <div class="col-11">Table ${table.table}</div>
                 <div class="col-1 text-center text-decoration-underline text-info">
-                  <a href="#">Delete</a>
-                </div>
+                <a href="#" class="delete-table">Delete</a>
+            </div>
               </li>
             </ul>
           </div>`;
@@ -71,9 +72,37 @@ $.ajax({
         alert('Failed to fetch tables.');
     },
 });
+}
+loadTables();
+
+
+$('#tablemangelist').on('click', 'a.delete-table', function (e) {
+    e.preventDefault();
+
+    const listItem = $(this).closest('.list-group-item');
+    const tableUuid = listItem.data('uuid');
+
+    if (confirm('Are you sure you want to delete this table?')) {
+        $.ajax({
+            url: `http://localhost:8080/up/tables/delete/${tableUuid}`,
+            method: 'DELETE',
+            success: function () {
+                alert('Table has been successfully deleted.');
+                listItem.remove();
+
+                // Reload the table list after deletion
+                loadTables();
+            },
+            error: function () {
+                alert('Failed to delete the table.');
+            },
+        });
+    }
+});
 
 
 
-$('#table').click(function () {
-    window.location.href = `/order.html`;
+$('#abc').on('click', 'a.h4', function () {
+    const tableUuid = $(this).closest('.list-group-item').data('uuid');
+    window.location.href = `/order.html?tableUuid=${tableUuid}`;
 });
