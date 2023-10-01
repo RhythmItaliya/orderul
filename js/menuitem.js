@@ -22,6 +22,7 @@ $('#btnmenuitem').click(function () {
         contentType: 'application/json',
         success: function (res) {
             alert('Menu item has been successfully added.');
+            loadMenuitems();
             $('#itemName').val('');
             $('#itemPrice').val('');
         },
@@ -47,6 +48,7 @@ $.ajax({
     },
 });
 
+function loadMenuitems() {
 $.ajax({
     url: 'http://localhost:8080/all/menuitem',
     success: function (res) {
@@ -58,10 +60,11 @@ $.ajax({
             itemList += `
           <div>
             <ul class="list-group mt-3">
-              <li class="list-group-item d-flex">
-                <div class="col-11">${menuItem.name}&nbsp&nbsp - &nbsp${menuItem.itemPrice}₹</div>
-                <div class="col-1 text-center text-decoration-underline text-info">
-                  <a href="#">Delete</a>
+            <li class="list-group-item d-flex" data-uuid="${menuItem.uuid}">
+                <div class="col-10">${menuItem.name}&nbsp&nbsp - &nbsp${menuItem.itemPrice}₹</div>
+                <div class="col-2 text-center text-info">
+                     <a href="#" class="text-primary update-category">Edit</a> &nbsp; | &nbsp; 
+                    <a href="#" class="text-danger delete-category">Delete</a>
                 </div>
               </li>
             </ul>
@@ -73,4 +76,56 @@ $.ajax({
     error: function () {
         alert('Failed to fetch menu items.');
     },
+});
+}
+loadMenuitems()
+
+
+// Edit Menu Item
+$('#menuitemlist').on('click', '.update-category', function () {
+    const listItem = $(this).closest('.list-group-item');
+    const uuid = listItem.data('uuid');
+    const updatedName = prompt('Enter the updated item name:', listItem.find('.col-10').text().trim().split(' - ')[0].trim());
+    const updatedPrice = prompt('Enter the updated item price:', listItem.find('.col-11').text().trim().split('-').pop().trim());
+
+    if (updatedName !== null && updatedPrice !== null) {
+        const updatedData = {
+            name: updatedName,
+            itemPrice: updatedPrice,
+        };
+
+        $.ajax({
+            url: `http://localhost:8080/up/menuitem/update/` + uuid,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(updatedData),
+            success: function () {
+                alert('Menu item has been updated successfully.');
+                loadMenuitems();
+            },
+            error: function () {
+                alert('Menu item update failed.');
+            },
+        });
+    }
+});
+
+
+$('#menuitemlist').on('click', '.delete-category', function() {
+    const listItem = $(this).closest('.list-group-item');
+    const uuid = listItem.data('uuid');
+
+    if (confirm('Are you sure you want to delete this category?')) {
+        $.ajax({
+            url: `http://localhost:8080/menuitem/delete/` + uuid,
+            method: 'DELETE',
+            success: function () {
+                alert('Category has been deleted successfully.');
+                loadMenuitems();
+            },
+            error: function () {
+                alert('Category delete failed.');
+            },
+        });
+    }
 });

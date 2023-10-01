@@ -29,7 +29,7 @@ $.ajax({
                     <div class="rounded-2 main2 overflow-x-hidden user-select-none">
                         <label for="" class="w-100 rounded-2 p-2 d-inline-block w-100">${menuItem.name}&nbsp&nbsp - &nbsp₹${menuItem.itemPrice}</label>
                     </div>
-                    <div class="rounded-2 text-center main3" data-item="item user-select-none" data-value="-1">
+                    <div class="rounded-2 text-center main3" data-item="item user-select-none" data-value="-1" id="minus">
                         <span class="plus-minus">
                             <svg class="mt-3" xmlns="http://www.w3.org/2000/svg" height="0.6em" viewBox="0 0 448 512">
                                 <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
@@ -37,9 +37,9 @@ $.ajax({
                         </span>
                     </div>
                     <div class="rounded-2 text-center user-select-none main4">
-                        <input type="number" class="text-center rounded-2 w-100 item-quantity" min="0" max="30" value="1">
+                        <input type="number" class="text-center user-select-none rounded-2 w-100 item-quantity" min="0" max="30" value="1" id="num">
                     </div>
-                    <div class="rounded-2 text-center user-select-none main3" data-item="item" data-value="1">
+                    <div class="rounded-2 text-center user-select-none main3" data-item="item" data-value="1" id="plus">
                         <span class="plus-minus"><svg class="mt-3" xmlns="http://www.w3.org/2000/svg" height="0.6em" viewBox="0 0 448 512">
                             <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
                         </svg></span>
@@ -68,9 +68,7 @@ $.ajax({
     },
 });
 
-
 // display....
-
 const itemnulist = {};
 $(document).on('change', '.menuitem', function () {
     if ($(this).prop('checked')) {
@@ -82,6 +80,7 @@ $(document).on('change', '.menuitem', function () {
         itemnulist[itemid] = { name: itemName, price: price, qty: qty };
 
         updateItemDisplay();
+
     } else {
         let itemid = $(this).parent().parent().data('id');
         delete itemnulist[itemid];
@@ -102,29 +101,27 @@ function updateItemDisplay() {
 
     $('#itemNameDisplay').html(itemNameDisplay);
     $('#itemQuantityDisplay').html(itemQuantityDisplay);
+
 }
 
-// confirem...
-
-$('#confirem-button').click(function () {
-    let emailOrUsername = $('#dash-email').val();
-    let password = $('#dash-password').val();
-
-    const loginData = {
-        userName: emailOrUsername,
-        password: password,
+$('#button22').click(function () {
+    let requestData = {
+        items: itemnulist
     };
 
     $.ajax({
-        url: '',
-        method: 'POST',
-        data: JSON.stringify(loginData),
+        url: 'http://localhost:8080/add/orders',
+        type: 'POST',
+        data: JSON.stringify(requestData),
         contentType: 'application/json',
-        success: function (res) {
-
+        success: function (response) {
+            window.location.href = "/popup.html"
+            console.log('Data sent successfully');
+            jaishreeram();
         },
-        error: function (value) {
-
-        },
+        error: function (error) {
+            console.error('Error');
+        }
     });
 });
+

@@ -29,8 +29,8 @@ $.ajax({
     url: 'http://localhost:8080/all/tables',
     method: 'GET',
     success: function (res) {
-    
-        let options = ''; 
+
+        let options = '';
         res.map((table) => {
             options += `
                 <div class="col-md-2">
@@ -49,8 +49,8 @@ $.ajax({
     url: 'http://localhost:8080/all/tables',
     method: 'GET',
     success: function (res) {
-        
-        let options = ''; 
+
+        let options = '';
 
         res.map((table) => {
             options += `
@@ -75,5 +75,5 @@ $.ajax({
 
 
 $('#table').click(function () {
-    window.location.href = "/order.html";
+    window.location.href = `/order.html`;
 });

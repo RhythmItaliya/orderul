@@ -32,7 +32,7 @@ $('#loginbtn').click(function () {
             } else if (role === 'kitchenAdmin') {
                 window.location.href = "/kitchen.html";
             } else if (role === 'orderAdmin') {
-                window.location.href = "/order.html";
+                window.location.href = "/table.html";
             } else {
                 alert('Unknown role');
             }

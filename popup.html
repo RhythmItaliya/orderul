@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/font-awesome.all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,28 +96,36 @@
                 </div>
                 <div class="w-100 d-flex overflow-auto">
                     <div class="secondmain p-4 w-75">
-                        <div class="" id="itemNameDisplay"></div>
+                        <div class="" id="itemNameDisplaypopup"></div>
                     </div>
                     <div class="secondmain2 p-4 text-center w-25">
-                        <div class="text-center" id="itemQuantityDisplay"></div>
+                        <div class="text-center" id="itemQuantityDisplaypopup"></div>
                     </div>
                 </div>
                 <div class="d-flex w-75 mx-auto rounded-3 mt-3">
                     <div class=" w-50 mt-2 text-center">
-                        <p class="confirem-button readorder">Cancel Order</p>
+                        <p id="buttoncancel" class="confirem-button readorder">Cancel Order</p>
                     </div>
                     <div class="text-end p-2 w-50">
-                        <button class="confirem-button">Place order</button>
+                        <button class="confirem-button" id="placeorderinkitch">Place order</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        document.getElementById("buttoncancel").addEventListener("click", function () {
+            window.location.href = "/table.html";
+        });
+    </script>
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/popup.js"></script>
-    <script src="js/logout.js"></script>
     <script src="js/order.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/kitchen.js"></script>
+
 </body>
 
 </html>

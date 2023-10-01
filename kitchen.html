@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/font-awesome.all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,28 +40,21 @@
                     <table class="col-12 table table-bordered table-striped">
                         <thead>
                             <tr class="text-center">
-                                <th colspan="2">Table number :</th>
-                                <td class="text-center"> <span>1</span></td>
+                                <th>Table number : <span>1</span> </th>
+                                <td class="text-center">
+                                    <button class="btn btn-warning rounded-2">Done</button>
+                                </td>
                             </tr>
                         </thead>
                         <thead>
                             <tr class="text-center">
                                 <th><span>Item Name</span></th>
                                 <th><span>Quantity</span></th>
-                                <th><span>status</span></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td class=""><span>Item 1</span></td>
-                                <td class="text-center"><span>5</span></td>
-                                <td class="text-center"><span>
-                                        <button class="btn-kithchen rounded-2">Done</button>
-                                    </span>
-                                </td>
-                            </tr>
-                            <!-- Add more bill items -->
-                        </tbody>
+
+                        <tbody id="kitchenedisplay"></tbody>
+
                     </table>
                 </div>
             </div>
@@ -76,7 +68,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/logout.js"></script>
-
+    <script src="js/kitchen.js"></script>
+    
 </body>
 
 </html>
