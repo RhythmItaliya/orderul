@@ -33,25 +33,3 @@ function jaishreeram() {
 }
 
 jaishreeram();
-
-
-// let tableNumber = '';
-// const currentUrl = window.location.href;
-// const uuidRegex = /uuid=([0-9a-fA-F-]+)/;
-// const match = currentUrl.match(uuidRegex);
-// const uuid = match ? match[1] : null;
-// if (uuid) {
-//     $.ajax({
-//         url: 'http://localhost:8080/all/tables',
-//         method: 'GET',
-//         async: false,
-//         success: function (data) {
-//             const filteredData = data.filter(item => item.uuid === uuid);
-//             (filteredData.length > 0)
-//             const tableName = filteredData[0].table;
-//             tableNumber = tableName;
-//             displayOrders(orders);
-//         },
-//     });
-// }
-// console.log(tableNumber);

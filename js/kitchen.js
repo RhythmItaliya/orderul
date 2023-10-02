@@ -18,14 +18,14 @@ function displayOrders(orders) {
     if (orders.length > 0) {
         let kitchenOrderDisplay = '';
 
-        orders.map((order) => {
+        orders.forEach((order, index) => {
             kitchenOrderDisplay += `
                 <table class="col-12 table table-bordered table-striped mt-4">
                     <thead>
                         <tr class="text-center">
-                            <th>Table number : <span id="tableName"></span> </th>
+                        <th>Table number : <span>${order.tableNumber}</span> </th>
                             <td class="text-center">
-                                <button class="btn btn-warning rounded-2">Done</button>
+                                <button class="btn btn-warning rounded-2" onclick="markOrderAsReady(${index})">Done</button>
                             </td>
                         </tr>
                     </thead>
@@ -38,7 +38,7 @@ function displayOrders(orders) {
                     <tbody>
             `;
 
-            order.items.map((item) => {
+            order.items.forEach((item) => {
                 kitchenOrderDisplay += `
                     <tr>
                         <td class="text-center">${item.name}</td>
@@ -56,11 +56,16 @@ function displayOrders(orders) {
     }
 }
 
+function markOrderAsReady(index) {
+    allOrders.splice(index, 1);
+    displayOrders(allOrders);
+    alert('Order is ready');
+}
+
 $('#redirectpopup').click(function () {
     alert('Order sent...');
     window.location.href = "/table.html";
     jayshreekrishn();
 });
-
 
 jayshreekrishn();
