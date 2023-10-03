@@ -20,7 +20,7 @@ $.ajax({
     success: function (res) {
         var options = '';
         res.map((bill) => {
-            options += `<option value="${bill.table}">Table ${bill.table}</option>`;
+            options += `<option value="${bill.uuid}">Table ${bill.table}</option>`;
         });
         $('#billSelect1').html(options);
     },
@@ -32,13 +32,12 @@ $.ajax({
 function displayOrders(orders) {
     if (orders.length > 0) {
         let kitchenOrderDisplay = '';
-
         orders.forEach((order) => {
             kitchenOrderDisplay += `
                 <table class="col-12 table table-bordered table-striped mt-4">
                     <thead>
                         <tr class="text-center">
-                            <th>Table number : <span>${order.tableNumber}</span> </th>
+                            <th>Table number : <span id="tableName">${order.tableNumber}</span> </th>
                             <th class="text-center" colspan="2">
                                 <button class="btn btn-warning rounded-2 printbill" data-uuid="${order.uuid}">Print Bill</button>
                             </th>
@@ -79,35 +78,37 @@ function displayOrders(orders) {
     }
 }
 
+
 function calculateTotalPrice(items) {
     let totalPrice = 0;
     items.forEach((item) => {
-        totalPrice += item.price * item.qty; 
+        var price1 = item.name.split('-').pop().trim().replace('₹', '');
+        totalPrice += price1 * item.qty;
     });
     return totalPrice;
 }
 
 harharmahadev();
 
-$('#billdisplay').on('click', '.printbill', function() {
+$('#billdisplay').on('click', '.printbill', function () {
     const uuid = $(this).data('uuid');
 
     if (confirm('Are you sure you want to print this bill?')) {
-        fetch(`http://localhost:8080/orders/delete/${uuid}`, {
+        fetch(`http://localhost:8080/orders/delete/` + uuid, {
             method: 'DELETE',
         })
-        .then(response => {
-            if (response.ok) {
-                alert('Bill printed successfully.');
-                harharmahadev();
-            } else {
-                alert('Bill printing failed.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Bill printing failed due to a network error.');
-        });
+            .then(response => {
+                if (response.ok) {
+                    alert('Bill printed successfully.');
+                    harharmahadev();
+                } else {
+                    alert('Bill printing failed.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Bill printing failed due to a network error.');
+            });
     }
 });
 

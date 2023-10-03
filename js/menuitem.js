@@ -63,8 +63,8 @@ $.ajax({
             <li class="list-group-item d-flex" data-uuid="${menuItem.uuid}">
                 <div class="col-10">${menuItem.name}&nbsp&nbsp - &nbsp${menuItem.itemPrice}₹</div>
                 <div class="col-2 text-center text-info">
-                     <a href="#" class="text-primary update-category">Edit</a> &nbsp; | &nbsp; 
-                    <a href="#" class="text-danger delete-category">Delete</a>
+                     <a href="" class="text-primary update-category">Edit</a> &nbsp; | &nbsp; 
+                    <a href="" class="text-danger delete-category">Delete</a>
                 </div>
               </li>
             </ul>

@@ -10,8 +10,8 @@ function loadCategories() {
                         <li class="list-group-item d-flex" data-uuid="${category.uuid}">
                             <div class="col-10">${category.name}</div>
                             <div class="col-2 text-center text-info">
-                                <a href="#" class="text-primary update-category">Edit</a> &nbsp; | &nbsp; 
-                                <a href="#" class="text-danger delete-category">Delete</a>
+                                <a href="" class="text-primary update-category">Edit</a> &nbsp; | &nbsp; 
+                                <a href="" class="text-danger delete-category">Delete</a>
                             </div>
                         </li>
                     </ul>
@@ -27,8 +27,7 @@ function loadCategories() {
 }
 
 // Add a click event handler for deleting categories
-$('#categoriesList').on('click', '.delete-category', function (e) {
-    e.preventDefault();
+$('#categoriesList').on('click', '.delete-category', function () {
 
     const listItem = $(this).closest('.list-group-item');
     const categoryUuid = listItem.data('uuid');
@@ -40,6 +39,7 @@ $('#categoriesList').on('click', '.delete-category', function (e) {
             success: function () {
                 alert('Category has been successfully deleted.');
                 listItem.remove();
+
             },
             error: function () {
                 alert('Failed to delete the category.');
@@ -48,8 +48,7 @@ $('#categoriesList').on('click', '.delete-category', function (e) {
     }
 });
 
-$('#categoriesList').on('click', '.update-category', function (e) {
-    e.preventDefault();
+$('#categoriesList').on('click', '.update-category', function () {
 
     const listItem = $(this).closest('.list-group-item');
     const categoryUuid = listItem.data('uuid');

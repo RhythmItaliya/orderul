@@ -63,7 +63,7 @@ function markOrderAsReady(index) {
 }
 
 $('#redirectpopup').click(function () {
-    alert('Order sent...');
+    alert('Order send successfully...');
     window.location.href = "/table.html";
     jayshreekrishn();
 });
