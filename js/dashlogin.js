@@ -29,7 +29,8 @@ $('#dash-loginbtn').click(function () {
         },
         error: function (value) {
             if (value.status == 403) {
-                alert('Please check your confirmation email');
+                // alert('Please check your confirmation email');
+                alert('Login failed...');
                 return false;
 
             } else if (value.status == 401) {

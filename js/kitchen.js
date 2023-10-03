@@ -6,6 +6,7 @@ function jayshreekrishn() {
         method: 'GET',
         success: function (res) {
             allOrders = res;
+            allOrders = res.filter(order => order.isActive === false);
             displayOrders(allOrders);
         },
         error: function () {
@@ -18,14 +19,14 @@ function displayOrders(orders) {
     if (orders.length > 0) {
         let kitchenOrderDisplay = '';
 
-        orders.forEach((order, index) => {
+        orders.forEach((order) => {
             kitchenOrderDisplay += `
                 <table class="col-12 table table-bordered table-striped mt-4">
                     <thead>
                         <tr class="text-center">
-                        <th>Table number : <span>${order.tableNumber}</span> </th>
+                            <th>Table number : <span>${order.tableNumber}</span> </th>
                             <td class="text-center">
-                                <button class="btn btn-warning rounded-2" onclick="markOrderAsReady(${index})">Done</button>
+                                <button class="btn btn-warning rounded-2 markAsReady" data-uuid="${order.uuid}">Done</button>
                             </td>
                         </tr>
                     </thead>
@@ -56,16 +57,35 @@ function displayOrders(orders) {
     }
 }
 
-function markOrderAsReady(index) {
-    allOrders.splice(index, 1);
-    displayOrders(allOrders);
-    alert('Order is ready');
-}
+$(document).ready(function () {
+    jayshreekrishn();
+});
 
 $('#redirectpopup').click(function () {
-    alert('Order send successfully...');
+    alert('Order sent successfully...');
     window.location.href = "/table.html";
     jayshreekrishn();
 });
 
-jayshreekrishn();
+
+$(document).on('click', '.markAsReady', function (e) {
+    e.preventDefault();
+    const uuid = $(this).data('uuid');
+    console.log('UUID:', uuid);
+    markOrderAsReady(uuid);
+});
+
+function markOrderAsReady(uuid) {
+    $.ajax({
+        url: `http://localhost:8080/orders/markready/${uuid}`,
+        method: 'PUT',
+        success: function () {
+            alert('Order marked as ready successfully');
+            jayshreekrishn();
+        },
+        error: function (error) {
+            console.error('Error:', error);
+            alert('Failed to mark order as ready');
+        },   
+    });
+}

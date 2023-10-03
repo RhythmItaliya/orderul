@@ -18,7 +18,7 @@ $('#register-btn').click(function () {
         userName: username,
         emailId: email,
         password: password,
-        role:role
+        role: role
     };
 
     $.ajax({
@@ -27,7 +27,8 @@ $('#register-btn').click(function () {
         data: JSON.stringify(userData),
         contentType: 'application/json',
         success: function () {
-            alert('Registration successful. Please check your email for confirmation.');
+            // alert('Registration successful. Please check your email for confirmation.');
+            alert('Registration successfully....');
             window.location.href = '/dashboard.html';
         },
         error: function () {

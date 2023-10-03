@@ -27,8 +27,8 @@ $('#dash-registerbtn').click(function () {
         data: JSON.stringify(userData),
         contentType: 'application/json',
         success: function (res) {
-            alert('Registration successful. Please check your email for confirmation.');
-            // window.location.href = '/login.html';
+            // alert('Registration successful. Please check your email for confirmation.');
+            window.location.href = '/login.html';
         },
         error: function () {
             alert('Registration failed');
