@@ -153,3 +153,21 @@ $('#button22').click(function () {
         }
     });
 });
+
+$(document).on('click', '#plus', function () {
+    let quantityInput = $(this).parent().find('.item-quantity');
+    let currentQuantity = parseInt(quantityInput.val());
+
+    if (currentQuantity < 30) {
+        quantityInput.val(currentQuantity + 1);
+    }
+});
+
+$(document).on('click', '#minus', function () {
+    let quantityInput = $(this).parent().find('.item-quantity');
+    let currentQuantity = parseInt(quantityInput.val());
+
+    if (currentQuantity > 1) {
+        quantityInput.val(currentQuantity - 1);
+    }
+});
