@@ -5,10 +5,18 @@ $('#register-btn').click(function () {
     const repeatPassword = $('#rrepetatpassword').val();
     const role = $('#loginrole').val();
 
+    // if (!username || !email || !password || !repeatPassword) {
+    //     alert('Please fill in all fields.');
+    //     return false;
+    // }
+
     if (!username || !email || !password || !repeatPassword) {
-        alert('Please fill in all fields.');
-        return false;
+        alert('Please fill in all fields');
+    } else {
+            alert('Registration successfully....');
+            window.location.href = 'login.html';
     }
+
     if (password !== repeatPassword) {
         alert('Passwords do not match.');
         return false;
@@ -27,9 +35,8 @@ $('#register-btn').click(function () {
         data: JSON.stringify(userData),
         contentType: 'application/json',
         success: function () {
-            // alert('Registration successful. Please check your email for confirmation.');
-            alert('Registration successfully....');
-            window.location.href = '/dashboard.html';
+            // alert('Registration successfully....');
+            // window.location.href = "/login.html";
         },
         error: function () {
             alert('Registration failed');

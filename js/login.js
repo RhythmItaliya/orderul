@@ -1,10 +1,18 @@
-if(window.localStorage.getItem('X-Access-Token') != null){
+if (window.localStorage.getItem('X-Access-Token') != null) {
     window.location.href = "/dashboard.html";
 }
 
 $('#loginbtn').click(function () {
     let emailOrUsername = $('#email').val();
     let password = $('#password').val();
+
+
+
+    if (!emailOrUsername || !password) {
+        alert('Please fill in all fields.');
+        return false;
+    }
+
 
     const loginData = {
         userName: emailOrUsername,
@@ -24,7 +32,7 @@ $('#loginbtn').click(function () {
             window.localStorage.setItem('role', role);
 
             const username = res["name"];
-            window.localStorage.setItem('name', username );
+            window.localStorage.setItem('name', username);
             if (role === 'dashboardAdmin') {
                 window.location.href = "/dashboard.html";
             } else if (role === 'billAdmin') {

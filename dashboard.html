@@ -52,8 +52,8 @@
 <body>
 
     <div class="navbar">
-            <h1 class="dashboard-title px-4">Dashboard</h1>
-            <h5 id="dashbordname" class="text-center px-4 text-uppercase"></h5>
+        <h1 class="dashboard-title px-4">Dashboard</h1>
+        <h5 id="dashbordname" class="text-center px-4 text-uppercase"></h5>
     </div>
 
     <div class="container mt-5">
@@ -83,10 +83,35 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box">
+                    <button id="kithcenbutton" class="btn btn-warning">GO to kitchen Board</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box">
+                    <button id="billbutton" class="btn btn-warning">Go to Bill Board</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box">
+                    <button id="tbalebutton" class="btn btn-warning">GO to Order & table</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="logout-button text-center mt-5">
         <button id="logout" class="btn btn-danger">Log Out</button>
@@ -117,6 +142,18 @@
 
         document.getElementById("button4").addEventListener("click", function () {
             window.location.href = "dashloginandreg.html";
+        });
+
+        document.getElementById("kithcenbutton").addEventListener("click", function () {
+            window.location.href = "kitchen.html";
+        });
+
+        document.getElementById("billbutton").addEventListener("click", function () {
+            window.location.href = "bill.html";
+        });
+
+        document.getElementById("tbalebutton").addEventListener("click", function () {
+            window.location.href = "table.html";
         });
     </script>
 

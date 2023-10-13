@@ -8,7 +8,11 @@ $('#dash-registerbtn').click(function () {
     if (!username || !email || !password || !repeatPassword || !role) {
         alert('Please fill in all fields.');
         return false;
+    } else {
+        alert('Registration successfully....');
+        window.location.href = "dashloginandreg.html"
     }
+
     if (password !== repeatPassword) {
         alert('Passwords do not match.');
         return false;
@@ -27,8 +31,7 @@ $('#dash-registerbtn').click(function () {
         data: JSON.stringify(userData),
         contentType: 'application/json',
         success: function (res) {
-            // alert('Registration successful. Please check your email for confirmation.');
-            window.location.href = '/login.html';
+            alert('Registration successful...');
         },
         error: function () {
             alert('Registration failed');

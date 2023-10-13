@@ -1,55 +1,3 @@
-$('#createTable').click(function () {
-    let createTable = $('#tableNumber').val();
-    const createData = {
-        table: createTable,
-    };
-
-    $.ajax({
-        url: 'http://localhost:8080/new/tables',
-        method: 'POST',
-        data: JSON.stringify(createData),
-        contentType: 'application/json',
-        data: JSON.stringify(createData),
-        success: function (res) {
-            const newTable = `
-            <div class="col-md-2">
-                <a href="/order.html?uuid=${res.uuid}">
-                    <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
-                </a>
-                <h4 class="h4 user-select-none">Table ${res.table}</h4>
-            </div>`;
-            $('#abc').append(newTable);
-
-            alert('Table created successfully.');
-        },
-        error: function () {
-            alert('Failed to create the table.');
-        },
-    });
-});
-
-$.ajax({
-    url: 'http://localhost:8080/all/tables',
-    method: 'GET',
-    success: function (res) {
-
-        let options = '';
-        res.map((table) => {
-            options += `
-            <div class="col-md-2">
-            <a href="/order.html?uuid=${table.uuid}">
-                <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
-            </a>
-            <h4 class="h4 user-select-none"> Table ${table.table}</h4>
-        </div>`;
-        });
-        $('#abc').html(options);
-    },
-    error: function () {
-        alert('Failed to fetch tables.');
-    },
-});
-
 function loadTables() {
     $.ajax({
         url: 'http://localhost:8080/all/tables',
@@ -80,6 +28,58 @@ function loadTables() {
 }
 loadTables();
 
+$('#createTable').click(function () {
+    let createTable = $('#tableNumber').val();
+    const createData = {
+        table: createTable,
+    };
+
+    $.ajax({
+        url: 'http://localhost:8080/new/tables',
+        method: 'POST',
+        data: JSON.stringify(createData),
+        contentType: 'application/json',
+        data: JSON.stringify(createData),
+        success: function (res) {
+            const newTable = `
+            <div class="col-md-2">
+                <a href="/order.html?uuid=${res.uuid}">
+                    <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
+                </a>
+                <h4 class="h4 user-select-none">Table ${res.table}</h4>
+            </div>`;
+            $('#abc').append(newTable);
+
+            alert('Table created successfully.');
+            loadTables();
+        },
+        error: function () {
+            alert('Failed to create the table.');
+        },
+    });
+});
+
+$.ajax({
+    url: 'http://localhost:8080/all/tables',
+    method: 'GET',
+    success: function (res) {
+
+        let options = '';
+        res.map((table) => {
+            options += `
+            <div class="col-md-2">
+            <a href="/order.html?uuid=${table.uuid}">
+                <img src="./img/coffee-table.png" alt="" width="100" height="100" style="cursor: pointer;" class="custom-div user-select-none"> 
+            </a>
+            <h4 class="h4 user-select-none"> Table ${table.table}</h4>
+        </div>`;
+        });
+        $('#abc').html(options);
+    },
+    error: function () {
+        alert('Failed to fetch tables.');
+    },
+});
 
 $('#tablemangelist').on('click', 'a.delete-table', function (e) {
     e.preventDefault();

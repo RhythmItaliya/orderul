@@ -42,7 +42,7 @@ function displayOrders(orders) {
             order.items.forEach((item) => {
                 kitchenOrderDisplay += `
                     <tr>
-                        <td class="text-center">${item.name}</td>
+                        <td>${item.name}</td>
                         <td class="text-center">${item.qty}</td>
                     </tr>
                 `;
